@@ -1,0 +1,16 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://postgres:5432/costumer_service
+    username: tcam
+    password: tcam123
+
+  liquibase:
+    enabled: true
+    url: jdbc:postgresql://postgres:5432/costumer_service
+    user: tcam
+    password: tcam123
+    change-log: classpath:/db/changelog/master.xml
+
+jwt:
+  secret: dev-secret-key-change-me
+  encryptionKey: dev-encryption-key-change-me

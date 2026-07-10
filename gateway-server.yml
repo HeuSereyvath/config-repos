@@ -1,0 +1,52 @@
+application:
+  version: 1.0
+server:
+  # port: ${GATEWAY_SERVER_PORT:5556}
+  port: 9999
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          globalcors:
+            corsConfigurations:
+              '[/**]':
+                allowedOrigins:
+                  - "*"              
+                allowedHeaders:
+                  - Content-Type
+                  - Authorization
+                  - appName
+                  - Accept-Language
+                allowedMethods:
+                  - "*"
+                exposedHeaders:
+                  - "Content-Disposition"
+                maxAge: 172800
+          routes: #manual specify lb services for better control
+            - id: customer-service
+              uri: lb://customer-service
+              predicates:
+                - Path=/customer-service/**
+              filters:
+                - StripPrefix=1
+
+# eureka:
+#   instance:
+#     # to allow SBA access this service
+#     metadata-map:
+#       user.name: "actuator"
+#       user.password: "{cipher}0b542b1b9da7f14908128f946d1c28f651697559ae0fadf3124ceeb00a1e3916"
+
+# server:
+#   port: 3333

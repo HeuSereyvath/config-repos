@@ -1,0 +1,11 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://prod-db:5432/costumer_service
+    username: prod_user
+    password: prod_pass
+
+  liquibase:
+    enabled: true
+    url: jdbc:postgresql://prod-db:5432/costumer_service
+    user: prod_user
+    password: prod_pass
