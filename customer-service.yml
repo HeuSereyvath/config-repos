@@ -42,7 +42,7 @@ minio:
   endpoint: http://minio:9000
   access-key: minioadmin
   secret-key: minioadmin123
-  bucket-name: customer-documents
+  bucket: customer-documents
   region: us-east-1
   presigned-url-expiry-minutes: 60
 
