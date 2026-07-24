@@ -38,6 +38,11 @@ jwt:
     client2BackPublicKey: dummy-public-key-value
     back2BackKey: dummy-back-to-back-key-value
 
+minio:
+  endpoint: http://minio:4000
+  bucket-name: dms-documents
+  region: us-east-1
+
 management:
   endpoints:
     web:
