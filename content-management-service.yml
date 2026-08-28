@@ -1,0 +1,53 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: content-management-service
+
+  r2dbc:
+    url: r2dbc:postgresql://postgres:5432/content-management-service
+    username: tcam
+    password: tcam123
+
+  liquibase:
+    enabled: true
+    url: jdbc:postgresql://postgres:5432/content-management-service
+    user: tcam
+    password: tcam123
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+
+logging:
+  level:
+    root: INFO
+    org.springframework.r2dbc: DEBUG
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:9000/eureka
+
+#jwt:
+#  secret: dev-secret-key-change-me
+#  encryptionKey: dev-encryption-key-change-me
+
+jwt:
+  secret: dev-secret-key-change-me
+  encryptionKey: dev-encryption-key-change-me
+  keys:
+    client2BackPublicKey: dummy-public-key-value
+    back2BackKey: dummy-back-to-back-key-value
+
+minio:
+  endpoint: http://minio:9000
+  access-key: minioadmin
+  secret-key: minioadmin123
+  bucket: customer-documents
+  region: us-east-1
+  presigned-url-expiry-minutes: 60
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
