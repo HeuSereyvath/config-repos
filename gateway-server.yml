@@ -46,6 +46,12 @@ spring:
                   - path=/admin-common/**
               filters:
                   - StripPrefix=1
+            - id: content-management-service
+              uri: lb://content-management-service
+              predicates:
+                - path=/conent-management-service/**
+              filters:
+                - StripPrefix=1
 
 # eureka:
 #   instance:
