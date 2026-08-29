@@ -38,13 +38,13 @@ jwt:
     client2BackPublicKey: dummy-public-key-value
     back2BackKey: dummy-back-to-back-key-value
 
-minio:
-  endpoint: http://minio:9000
-  access-key: minioadmin
-  secret-key: minioadmin123
-  bucket: customer-documents
-  region: us-east-1
-  presigned-url-expiry-minutes: 60
+#minio:
+#  endpoint: http://minio:9000
+#  access-key: minioadmin
+#  secret-key: minioadmin123
+#  bucket: customer-documents
+#  region: us-east-1
+#  presigned-url-expiry-minutes: 60
 
 management:
   endpoints:
