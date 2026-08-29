@@ -6,13 +6,13 @@ spring:
     name: content-management-service
 
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/content-management-service
+    url: r2dbc:postgresql://host.docker.internal:5432/content-management-service
     username: postgres
     password: postgres
 
   liquibase:
     enabled: true
-    url: jdbc:postgresql://localhost:5432/content-management-service
+    url: jdbc:postgresql://host.docker.internal:5432/content-management-service
     user: postgres
     password: postgres
     change-log: classpath:/db/changelog/db.changelog-master.yaml
