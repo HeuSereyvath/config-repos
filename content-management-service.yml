@@ -26,6 +26,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
 
 #jwt:
 #  secret: dev-secret-key-change-me
