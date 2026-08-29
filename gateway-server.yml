@@ -49,7 +49,7 @@ spring:
             - id: content-management-service
               uri: lb://content-management-service
               predicates:
-                - path=/content-management-service/**
+                - path=/v1/api/content-management-service/**
 #              filters:
 #                - StripPrefix=1
 
