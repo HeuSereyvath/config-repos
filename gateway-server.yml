@@ -50,8 +50,8 @@ spring:
               uri: lb://content-management-service
               predicates:
                 - path=/content-management-service/**
-              filters:
-                - StripPrefix=1
+#              filters:
+#                - StripPrefix=1
 
 eureka:
   client:
