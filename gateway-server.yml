@@ -64,7 +64,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,gateway
+        include: "*"
 # eureka:
 #   instance:
 #     # to allow SBA access this service
