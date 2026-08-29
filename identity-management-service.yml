@@ -1,0 +1,53 @@
+server:
+  port: 5555
+
+spring:
+  application:
+    name: identity-management-service
+
+  r2dbc:
+    url: r2dbc:postgresql://host.docker.internal:5432/identity-management-service
+    username: postgres
+    password: postgres
+
+  liquibase:
+    enabled: true
+    url: jdbc:postgresql://host.docker.internal:5432/identity-management-service
+    user: postgres
+    password: postgres
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+
+logging:
+  level:
+    root: INFO
+    org.springframework.r2dbc: DEBUG
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+#jwt:
+#  secret: dev-secret-key-change-me
+#  encryptionKey: dev-encryption-key-change-me
+
+jwt:
+  secret: dev-secret-key-change-me
+  encryptionKey: dev-encryption-key-change-me
+  keys:
+    client2BackPublicKey: dummy-public-key-value
+    back2BackKey: dummy-back-to-back-key-value
+
+#minio:
+#  endpoint: http://minio:9000
+#  access-key: minioadmin
+#  secret-key: minioadmin123
+#  bucket: customer-documents
+#  region: us-east-1
+#  presigned-url-expiry-minutes: 60
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
