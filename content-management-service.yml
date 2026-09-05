@@ -29,10 +29,6 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
 
-#jwt:
-#  secret: dev-secret-key-change-me
-#  encryptionKey: dev-encryption-key-change-me
-
 jwt:
   secret: dev-secret-key-change-me
   encryptionKey: dev-encryption-key-change-me

@@ -27,10 +27,6 @@ eureka:
     service-url:
       defaultZone: http://eureka-server:8761/eureka
 
-#jwt:
-#  secret: dev-secret-key-change-me
-#  encryptionKey: dev-encryption-key-change-me
-
 jwt:
   secret: dev-secret-key-change-me
   encryptionKey: dev-encryption-key-change-me

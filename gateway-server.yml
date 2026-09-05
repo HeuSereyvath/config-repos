@@ -38,20 +38,14 @@ spring:
               uri: lb://customer-service
               predicates:
                 - Path=/customer-service/**
-              filters:
-                - StripPrefix=1
             - id: admin-common
               uri: lb://admin-common
               predicates:
                   - path=/admin-common/**
-              filters:
-                  - StripPrefix=1
             - id: content-management-service
               uri: lb://content-management-service
               predicates:
                 - path=/api/v1/content-management/**
-#              filters:
-#                - StripPrefix=1
 
 eureka:
   client:
@@ -69,12 +63,4 @@ management:
   endpoint:
     gateway:
       access: read-only
-# eureka:
-#   instance:
-#     # to allow SBA access this service
-#     metadata-map:
-#       user.name: "actuator"
-#       user.password: "{cipher}0b542b1b9da7f14908128f946d1c28f651697559ae0fadf3124ceeb00a1e3916"
 
-# server:
-#   port: 3333

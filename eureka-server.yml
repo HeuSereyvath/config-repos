@@ -13,5 +13,5 @@ eureka:
   server:
     enable-self-preservation: false
 
-  instance:
-    hostname: localhost
+#  instance:
+#    hostname: localhost
