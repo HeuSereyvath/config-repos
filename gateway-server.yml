@@ -38,14 +38,14 @@ spring:
               uri: lb://customer-service
               predicates:
                 - Path=/customer-service/**
-            - id: admin-common
-              uri: lb://admin-common
+            - id: admin-service
+              uri: lb://admin-service
               predicates:
-                  - path=/admin-common/**
+                - path=/admin-service/**
             - id: content-management-service
               uri: lb://content-management-service
               predicates:
-                - path=/api/v1/content-management/**
+                - path=/api/v1/content-management-service/**
 
 eureka:
   client:
