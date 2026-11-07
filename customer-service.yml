@@ -34,13 +34,39 @@ jwt:
     client2BackPublicKey: dummy-public-key-value
     back2BackKey: dummy-back-to-back-key-value
 
-minio:
-  endpoint: http://minio:9000
-  access-key: minioadmin
-  secret-key: minioadmin123
-  bucket: customer-documents
-  region: us-east-1
-  presigned-url-expiry-minutes: 60
+kafka:
+  bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092,localhost:9094,localhost:9096}
+  client-id: ${KAFKA_CLIENT_ID:approval-service}
+
+  producer:
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    acks: all
+    retries: 2147483647
+    properties:
+      enable.idempotence: true
+      max.in.flight.requests.per.connection: 5
+      delivery.timeout.ms: 120000
+
+  consumer:
+    group-id: ${KAFKA_CONSUMER_GROUP:approval-service}
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    enable-auto-commit: false
+    auto-offset-reset: earliest
+    properties:
+      isolation.level: read_committed
+
+  listener:
+    ack-mode: manual_immediate
+    concurrency: ${KAFKA_CONCURRENCY:3}
+#minio:
+#  endpoint: http://minio:9000
+#  access-key: minioadmin
+#  secret-key: minioadmin123
+#  bucket: customer-documents
+#  region: us-east-1
+#  presigned-url-expiry-minutes: 60
 
 management:
   endpoints:
